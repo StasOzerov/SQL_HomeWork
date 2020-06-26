@@ -1,0 +1,37 @@
+
+Terminal:
+    mysql -u root -p
+
+Terminal(mysql):
+    CREATE DATABASE vk;
+    SHOW DATABASES;
+    exit
+
+Terminal:
+    cd ~
+    mkdir les3
+    ls
+    
+# После генерации и скачивания дампа "fulldb26-06-2020 11-56.sql" с сайта filldb.info
+# передаем дамп через FileZilla в ОС ubuntu на виртуальной машине в папку /home/ubuntu/les3
+
+Terminal:
+    cd les3
+    ls   # убедиться что "fulldb26-06-2020 11-56.sql" находится в папке
+    cat "fulldb26-06-2020 11-56.sql"
+    mysql -u root -p vk < "fulldb26-06-2020 11-56.sql"
+    mysql -u root -p
+
+Terminal(mysql):
+    USE vk;
+    SHOW tables;
+    SELECT * FROM communities;
+    SELECT * FROM communities_users;
+    SELECT * FROM friendship;
+    SELECT * FROM friendship_statuses;
+    SELECT * FROM media;
+    SELECT * FROM media_types;
+    SELECT * FROM messages;
+    SELECT * FROM profiles;
+    SELECT * FROM users;
+    exit
