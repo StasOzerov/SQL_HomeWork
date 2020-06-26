@@ -1,0 +1,67 @@
+
+# 1 -----------------------------------------------------
+
+terminal:
+    mysql -u root -p    # open mysql without .my.cnf
+    cd ~
+    nano .my.cnf
+    ls -a | grep cnf
+    cat .my.cnf
+    mysql    # mysql opened if all command were correct
+    
+nano (edit .my.cnf):
+    [mysql]
+    user=root
+    password=my8sql
+
+
+# 2 -----------------------------------------------------
+
+terminal:
+    mysql
+
+terminal (inside mysql):
+    CREATE DATABASE example;
+    SHOW DATABASES;    
+    USE example;
+    CREATE TABLE IF NOT EXISTS users (
+    id SERIAL,
+    name VARCHAR(255) NOT NULL UNIQUE
+    );
+    SHOW TABLES;
+    EXIT
+
+
+# 3 -----------------------------------------------------
+
+terminal:
+    mysqldump -u root -p example > example.sql
+    ls | grep example
+    cat example.sql
+    mysql -e 'CREATE DATABASE sample';
+
+terminal (inside mysql):
+    SHOW DATABASES;
+    EXIT
+
+terminal:
+    mysql sample < example.sql
+    mysql
+
+terminal (inside mysql):
+    USE sample;
+    SHOW TABLES;
+    EXIT
+
+
+# 4 -----------------------------------------------------
+
+terminal:
+    mysqldump -u root -p mysql help_keyword --where='TRUE ORDER BY help_keyword_id LIMIT 100' > help_keyword.sql
+    ls | grep help_
+  
+
+
+
+
+
